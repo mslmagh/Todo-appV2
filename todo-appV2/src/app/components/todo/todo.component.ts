@@ -9,12 +9,15 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './todo.component.css'
 })
 export class TodoComponent {
-  todos = ['Angular öğren', 'Projeyi geliştir', 'Testleri yap'];
-  newTodo = '';
-  addTodo() {
-    if (this.newTodo.trim()) {
-      this.todos.push(this.newTodo);
+  todos: { name: string, completed: boolean }[] = [];
+  newTodo: string = '';
+  addTodo(todoName: string) {
+    if (todoName) {
+      this.todos.push({ name: todoName, completed: false });
       this.newTodo = '';
     }
+  }
+  toggleTodoCompletion(index: number): void {
+    this.todos[index].completed = !this.todos[index].completed;
   }
 }

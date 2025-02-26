@@ -1,7 +1,14 @@
-<h2>To-Do Listesi</h2>
-<!-- Yeni görev eklemek için input ve buton -->
-<input [(ngModel)]="newTodo" placeholder="Yeni görev ekle" />
-<button (click)="addTodo()">Ekle</button>
-<ul>
-  <li *ngFor="let todo of todos">{{ todo }}</li>
-</ul>
+<div class="todo-container">
+    <h2>To-Do Listesi</h2>
+    <!-- Yeni görev eklemek için input ve buton -->
+    <input tyoe="text" [(ngModel)]="newTodo" placeholder="Yeni görev ekle" />
+    <button (click)="addTodo(newTodo)">Ekle</button>
+    <!-- Todo'ları listeleme -->
+    <ul>
+        <li *ngFor="let todo of todos; let i = index">
+            <span [class.completed]="todo.completed" (click)="toggleTodoCompletion(i)">
+                {{ todo.name }}
+            </span>
+        </li>
+    </ul>
+</div>
