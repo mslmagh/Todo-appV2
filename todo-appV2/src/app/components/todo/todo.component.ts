@@ -17,7 +17,13 @@ export class TodoComponent {
       this.newTodo = '';
     }
   }
-  // toggleTodoCompletion(index: number): void {
-  //   this.todos[index].completed = !this.todos[index].completed;
-  // }
-}
+  deleteTodo(index: number): void {
+    this.todos.splice(index, 1);
+  }
+  clearCompleted(): void {
+    this.todos = this.todos.filter(todo => !todo.completed);
+  }
+    // toggleTodoCompletion(index: number): void {
+    //   this.todos[index].completed = !this.todos[index].completed;
+    // }
+  }
