@@ -17,7 +17,7 @@ export class TodoComponent {
       this.newTodo = '';
     }
   }
-  toggleTodoCompletion(index: number): void {
-    this.todos[index].completed = !this.todos[index].completed;
-  }
+  // toggleTodoCompletion(index: number): void {
+  //   this.todos[index].completed = !this.todos[index].completed;
+  // }
 }
