@@ -11,8 +11,9 @@ import { FormsModule } from '@angular/forms';
 export class TodoComponent {
   todos: { name: string, completed: boolean }[] = [];
   newTodo: string = '';
+  currentDate: string = new Date().toLocaleDateString();
   addTodo(todoName: string) {
-    if (todoName) {
+    if (todoName.trim()) {
       this.todos.push({ name: todoName, completed: false });
       this.newTodo = '';
     }
@@ -23,7 +24,7 @@ export class TodoComponent {
   clearCompleted(): void {
     this.todos = this.todos.filter(todo => !todo.completed);
   }
-    // toggleTodoCompletion(index: number): void {
-    //   this.todos[index].completed = !this.todos[index].completed;
-    // }
-  }
+  // toggleTodoCompletion(index: number): void {
+  //   this.todos[index].completed = !this.todos[index].completed;
+  // }
+}

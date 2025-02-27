@@ -1,20 +1,27 @@
-<div class="todo-container">
-    <h2>To-Do Listesi</h2>
-    <!-- Yeni görev eklemek için input ve buton -->
-    <input tyoe="text" [(ngModel)]="newTodo" placeholder="Yeni görev ekle" />
+<div class="page-container">
+  <!-- Üst kısım: Başlık ve Tarih -->
+  <div class="header">
+    <h2>TO DO LIST</h2>
+    <span class="date">{{ currentDate }}</span>
+  </div>
+
+  <!-- Yeni görev ekleme alanı (Sabit kalacak, liste çoğaldıkça aşağı kaymaz) -->
+  <div class="input-container">
+    <input type="text" [(ngModel)]="newTodo" placeholder="Add a new task..." />
     <button (click)="addTodo(newTodo)">Add</button>
-    <!-- Todo'ları listeleme -->
+  </div>
+
+  <!-- Liste Gövdesi: Çizgili satırlar, checkboxlar ve delete butonu -->
+  <div class="list-container">
     <ul>
-        <li *ngFor="let todo of todos; let i = index">
-            <!-- Checkbox ekliyoruz ve tıklandığında ngModel ile todo.completed değeri güncellenecek -->
-            <input type="checkbox" [(ngModel)]="todo.completed">
-            <span [class.completed]="todo.completed">
-                {{ todo.name }}
-            </span>
-            <!-- Sil butonu ekliyoruz ve tıklandığında deleteTodo fonksiyonu çağrılacak -->
-            <button (click)="deleteTodo(i)">Delete</button>
-        </li>
+      <li *ngFor="let todo of todos; let i = index">
+        <input type="checkbox" [(ngModel)]="todo.completed" />
+        <span [class.completed]="todo.completed">{{ todo.name }}</span>
+        <button class="delete-btn" (click)="deleteTodo(i)">Delete</button>
+      </li>
     </ul>
-    <!-- Tamamlananları temizle butonu -->
-    <button (click)="clearCompleted()">Clear Completed</button>
+  </div>
+
+  <!-- Tamamlananları temizleme butonu -->
+  <button class="clear-btn" (click)="clearCompleted()">Clear Completed</button>
 </div>

@@ -1,34 +1,146 @@
+.page-container {
+  width: 600px;
+  min-height: 800px;
+  margin: 40px auto;
+  background: #fff;
+  font-family: 'Georgia', serif;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 40px;
+  box-sizing: border-box;
+}
 
-  .todo-container {
-    width: 300px;
-    margin: 0 auto;
-  }
-  
-  input[type="text"] {
-    width: 70%;
-    padding: 5px;
-  }
-  
-  button {
-    padding: 5px 10px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  li:hover {
-    background-color: #f0f0f0;
-  }
-  
-  input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
+/* Başlık ve Tarih */
+.header {
+  text-align: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  font-size: 2em;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.header .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.9em;
+  color: #333;
+  margin: 5px;
+}
+
+/* Input-container: sabit üst kısım */
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-container input[type="text"] {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #000;
+  font-size: 1em;
+  padding: 5px;
+  outline: none;
+  font-family: 'Georgia', serif;
+}
+
+.input-container input[type="text"]::placeholder {
+  color: #999;
+}
+
+.input-container button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s;
+  font-family: 'Georgia', serif;
+  border-radius: 3px;
+  height: 40px;
+  white-space: nowrap;
+}
+
+.input-container button:hover {
+  background: #444;
+}
+
+/* Global Delete butonu için eklenen konumlandırma */
+.global-delete-container {
+  margin-left: auto;
+}
+
+/* Görev listesi */
+.list-container {
+  margin: 0 20px 40px;
+}
+
+.list-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-container li {
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 0%;
+  padding-left: 40px;
+  line-height: 1.8em;
+  cursor: pointer;
+}
+
+/* Kağıt çizgisi görünümü */
+.list-container li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 1px solid #000;
+  pointer-events: none;
+}
+
+/* Checkbox ayarı */
+.list-container input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(2px);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Tamamlanmış görev stili */
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Clear Completed butonu */
+.clear-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s;
+  font-family: 'Georgia', serif;
+  border-radius: 3px;
+  display: block;
+  margin: 0 20px;
+}
+
+.clear-btn:hover {
+  background: #444;
+}
