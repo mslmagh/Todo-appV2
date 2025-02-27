@@ -92,10 +92,12 @@
 .list-container li {
   position: relative;
   margin-bottom: 30px;
-  padding-left: 0%;
   padding-left: 40px;
   line-height: 1.8em;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Kağıt çizgisi görünümü */
@@ -109,15 +111,41 @@
   pointer-events: none;
 }
 
+.list-container button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s;
+  font-family: 'Georgia', serif;
+  border-radius: 3px;
+  height: 40px;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+.list-container button:hover {
+  background: #444;
+}
+
 /* Checkbox ayarı */
 .list-container input[type="checkbox"] {
   position: absolute;
   left: 0;
-  top: 0;
-  transform: translateY(2px);
+  top: 50%;
+  transform: translateY(-50%);
   width: 18px;
   height: 18px;
   cursor: pointer;
+}
+
+/* Todo text container */
+.todo-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Tamamlanmış görev stili */
